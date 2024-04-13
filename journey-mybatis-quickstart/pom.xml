@@ -19,6 +19,7 @@
         <mybatis.version>3.5.15</mybatis.version>
         <mysql.version>8.3.0</mysql.version>
         <junit.version>5.10.2</junit.version>
+        <logback.version>1.5.4</logback.version>
     </properties>
 
     <dependencies>
@@ -41,6 +42,14 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
