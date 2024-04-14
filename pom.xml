@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>journey-mybatis-quickstart</module>
+        <module>journey-mybatis-complete</module>
     </modules>
 
     <properties>

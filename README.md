@@ -73,3 +73,55 @@ MyBatis 官方文档：https://mybatis.org/mybatis-3/index.html
 2. 添加 logback 配置文件，文件名为 logback / logback-test.xml
 3. mybatis 配置文件中相关的配置可以省略
 
+## 3. MyBatis CRUD
+
+### 3.1 CREATE
+
+1. 封装模拟前端传递的参数
+2. 编写 UserMapper.xml 文件中的 SQL 语句
+
+```xml
+<insert id="insertUser">
+  insert into jm_user(username, password) values (#{username}, #{password})
+</insert>
+```
+
+3. 调用 UserMapper 中的插入方法
+
+```java
+package org.example.mybatis.util;
+
+import org.apache.ibatis.session.SqlSession;
+import org.example.mybatis.mapper.UserMapper;
+import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+
+class UserMapperTest {
+
+    @Test
+    void insertUser() {
+        Map<String, Object> user = new HashMap<>();
+        user.put("username", "zhangsan");
+        user.put("password", "123456");
+
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        userMapper.insertUser(user);
+
+        sqlSession.commit();
+        sqlSession.close();
+    }
+}
+```
+
+### 3.2 DELETE
+
+### 3.3 UPDATE
+
+### 3.4 RETRIEVE
+
+注意：查询语句中如果列名中有下划线/与实体类属性名不一致的，必须使用 as 关键字 与实体类属性名保持一致，才能赋值成功
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mybatis.mapper.UserMapper">
+
+    <insert id="insertUser">
+        insert into jm_user(username, password) values (#{username}, #{password})
+    </insert>
+
+    <insert id="insertUserByEntity">
+        insert into jm_user(username, password) values (#{username}, #{password})
+    </insert>
+
+    <delete id="deleteUserById">
+        delete from jm_user where id = #{id}
+    </delete>
+
+    <update id="updateUser">
+        update jm_user set password = #{password} where id = #{id}
+    </update>
+
+    <select id="selectUserById" resultType="org.example.mybatis.entity.User">
+        select * from jm_user where id = #{id}
+    </select>
+
+    <select id="selectAll" resultType="org.example.mybatis.entity.User">
+        select * from jm_user
+    </select>
+
+</mapper>
