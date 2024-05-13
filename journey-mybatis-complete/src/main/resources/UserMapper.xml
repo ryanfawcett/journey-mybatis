@@ -20,7 +20,8 @@
         update jm_user set password = #{password} where id = #{id}
     </update>
 
-    <select id="selectUserById" resultType="org.example.mybatis.entity.User">
+    <!-- 如果在mybatis的配置文件中配置了返回类型的别名时, 可以直接使用 -->
+    <select id="selectUserById" resultType="User">
         select * from jm_user where id = #{id}
     </select>
 
