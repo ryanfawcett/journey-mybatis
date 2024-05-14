@@ -21,7 +21,10 @@
     <properties resource="jdbc.properties"/>
     <!-- 设置类型别名 -->
     <typeAliases>
-        <typeAlias type="org.example.mybatis.entity.User" alias="User"/>
+        <!-- 如果没有设置别名, 则默认为类名且不区分大小写 -->
+        <!-- <typeAlias type="org.example.mybatis.entity.User" alias="User"/> -->
+        <!-- 以包为单位设置指定包下所有实体类的别名, 且不区分大小写 -->
+        <package name="org.example.mybatis.entity"/>
     </typeAliases>
     <!-- 在 environments 中可以同时配置多个数据库连接, 通过指定 default 的值来配置当前使用的数据库连接 -->
     <environments default="development">
@@ -67,6 +70,13 @@
     </environments>
     <!-- 配置SQL映射文件 -->
     <mappers>
-        <mapper resource="UserMapper.xml"/>
+        <!-- <mapper resource="com.example.mybatis.mapper.UserMapper.xml"/> -->
+        <!-- 以包为单位配置映射文件 -->
+        <!--
+            注意：
+                1. Mapper接口所在的包必须与映射文件所在包一致
+                2. Mapper接口的文件名称必须与映射文件一致
+        -->
+        <package name="org.example.mybatis.mapper"/>
     </mappers>
 </configuration>
