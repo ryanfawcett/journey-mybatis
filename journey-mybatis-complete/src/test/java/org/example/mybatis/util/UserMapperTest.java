@@ -13,18 +13,15 @@ import java.util.Map;
 class UserMapperTest {
 
     @Test
-    void insertUser() {
+    void insertUserByMap() {
         Map<String, Object> user = new HashMap<>();
-        user.put("username", "zhangsan");
-        user.put("password", "123456");
+        user.put("username", anyString());
+        user.put("password", anyString());
 
-        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
-
+        SqlSession sqlSession = SqlSessionUtil.getAutoCommitSqlSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         int count = userMapper.insertUser(user);
         Assertions.assertEquals(1, count);
-
-        sqlSession.commit();
         sqlSession.close();
     }
 

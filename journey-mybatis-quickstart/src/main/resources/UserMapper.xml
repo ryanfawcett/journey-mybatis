@@ -5,7 +5,7 @@
 <mapper namespace="org.example.mybatis.mapper.UserMapper">
 
     <insert id="insertUser">
-        insert into jm_user(username, password) values ('ryan', '123456')
+        insert into jmq_user(username, password) values ('ryan', '123456')
     </insert>
 
 </mapper>

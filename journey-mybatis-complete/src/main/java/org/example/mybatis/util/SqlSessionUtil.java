@@ -34,4 +34,8 @@ public class SqlSessionUtil {
         return sqlSessionFactory.openSession();
     }
 
+    public static SqlSession getAutoCommitSqlSession() {
+        return sqlSessionFactory.openSession(true);
+    }
+
 }
