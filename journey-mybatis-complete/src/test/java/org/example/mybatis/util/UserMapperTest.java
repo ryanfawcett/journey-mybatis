@@ -5,6 +5,8 @@ import org.example.mybatis.entity.User;
 import org.example.mybatis.mapper.UserMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +14,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@SuppressWarnings("all")
 class UserMapperTest {
+
+    private final Logger log = LoggerFactory.getLogger(UserMapperTest.class);
 
     @Test
     void insertUserByMap() {
@@ -23,10 +28,10 @@ class UserMapperTest {
         SqlSession sqlSession = SqlSessionUtil.getAutoCommitSqlSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 
-        System.out.println("正在添加用户: " + user.get("username"));
+        log.info("正在添加用户: {}",  user.get("username"));
         int count = userMapper.insertUser(user);
         Assertions.assertEquals(1, count);
-        System.out.println("用户: " + user.get("username") + " 添加成功！");
+        log.info("用户: {} 添加成功！", user.get("username"));
 
         sqlSession.close();
     }
@@ -38,10 +43,10 @@ class UserMapperTest {
         SqlSession sqlSession = SqlSessionUtil.getAutoCommitSqlSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 
-        System.out.println("正在添加用户: " + user.getUsername());
+        log.info("正在添加用户: {}",  user.getUsername());
         int count = userMapper.insertUserByEntity(user);
         Assertions.assertEquals(1, count);
-        System.out.println("用户: " + user.getUsername() + " 添加成功！");
+        log.info("用户：{} 添加成功！", user.getUsername());
 
         sqlSession.close();
     }
@@ -56,12 +61,12 @@ class UserMapperTest {
                 .findAny()
                 .ifPresent(user -> {
                     String username = user.getUsername();
-                    System.out.println("正在删除用户：" + username);
+                    log.info("正在删除用户：{}", username);
 
                     int count = userMapper.deleteUserById(user.getId());
                     Assertions.assertEquals(1, count);
 
-                    System.out.println("用户: " + username + " 删除成功！");
+                    log.info("用户：{} 删除成功！", username);
                 });
 
         sqlSession.close();
@@ -77,15 +82,15 @@ class UserMapperTest {
                 .findAny()
                 .ifPresent(user -> {
                     String username = user.getUsername();
-                    System.out.println("正在为用户: " + username + " 修改密码...");
+                    log.info("正在为用户：{} 修改密码...", username);
 
                     String newPassword = RandomUtil.randomIntsAsString(6);
-                    System.out.println("新密码为: " + newPassword);
+                    log.info("新密码为：{}", newPassword );
 
                     user.setPassword(newPassword);
                     int count = userMapper.updateUser(user);
                     Assertions.assertEquals(1, count);
-                    System.out.println("用户: " + username + " 密码修改成功！");
+                    log.info("用户：{} 密码修改成功！", username);
                 });
 
         sqlSession.close();
@@ -102,11 +107,11 @@ class UserMapperTest {
                 .findAny()
                 .ifPresent(anyUser -> {
                     String username = anyUser.getUsername();
-                    System.out.println("正在查找用户: " + username + " 的全部信息");
+                    log.info("正在查找用户：{} 的全部信息", username);
 
                     User user = userMapper.selectUserById(anyUser.getId());
                     Assertions.assertNotNull(user);
-                    System.out.println("用户: " + username + " 的详细信息: " + user);
+                    log.info("用户：{} 的详细信息：{}", username, user);
                 });
 
         sqlSession.close();
