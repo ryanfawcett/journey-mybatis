@@ -35,15 +35,11 @@ public class RandomUtil {
     }
 
     public static String randomIntsAsString(int length) {
-        char[] chars = new char[length];
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            // chars[i] = random.nextInt(random.nextInt());
+            stringBuilder.append(random.nextInt(10));
         }
-        return new String(chars);
-    }
-
-    public static void main(String[] args) {
-        System.out.println(randomUpperCase());
+        return stringBuilder.toString();
     }
 
 }

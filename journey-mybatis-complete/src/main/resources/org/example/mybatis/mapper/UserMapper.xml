@@ -9,24 +9,24 @@
     </insert>
 
     <insert id="insertUserByEntity">
-        insert into jm_user(username, password) values (#{username}, #{password})
+        insert into jmc_user(username, password) values (#{username}, #{password})
     </insert>
 
     <delete id="deleteUserById">
-        delete from jm_user where id = #{id}
+        delete from jmc_user where id = #{id}
     </delete>
 
     <update id="updateUser">
-        update jm_user set password = #{password} where id = #{id}
+        update jmc_user set password = #{password} where id = #{id}
     </update>
 
     <!-- 如果在mybatis的配置文件中配置了返回类型的别名时, 可以直接使用 -->
     <select id="selectUserById" resultType="User">
-        select * from jm_user where id = #{id}
+        select * from jmc_user where id = #{id}
     </select>
 
     <select id="selectAll" resultType="org.example.mybatis.entity.User">
-        select * from jm_user
+        select * from jmc_user
     </select>
 
 </mapper>
