@@ -11,6 +11,7 @@
     <modules>
         <module>journey-mybatis-quickstart</module>
         <module>journey-mybatis-complete</module>
+        <module>journey-mybatis-configuration</module>
     </modules>
 
     <properties>

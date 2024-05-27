@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace的作用：防止id重复 -->
 <mapper namespace="org.example.mybatis.mapper.UserMapper">
 
     <insert id="insertUser">

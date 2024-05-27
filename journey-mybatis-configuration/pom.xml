@@ -8,9 +8,8 @@
         <artifactId>journey-mybatis</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <packaging>jar</packaging>
 
-    <artifactId>journey-mybatis-quickstart</artifactId>
+    <artifactId>journey-mybatis-configuration</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -53,4 +52,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 </project>
