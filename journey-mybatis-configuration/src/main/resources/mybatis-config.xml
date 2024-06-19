@@ -55,6 +55,10 @@
                 <property name="username" value="${jdbc.username}"/>
                 <!-- 设置连接数据库的密码 -->
                 <property name="password" value="${jdbc.password}"/>
+                <!-- 设置连接池在任意时间可存在的活动连接数量, 默认值为10 -->
+                <property name="poolMaximumActiveConnections" value="10"/>
+                <!-- 设置连接池最大空闲连接数量 -->
+                <property name="poolMaximumIdleConnections" value="3"/>
             </dataSource>
         </environment>
 
