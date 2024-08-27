@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.bank.dao.IAccountMapper">
+    <update id="updateByAccountId" parameterType="org.example.bank.entity.Account">
+        UPDATE jmb_account SET balance = #{balance} WHERE account_id = #{accountId}
+    </update>
+
+    <select id="getAccountById" resultType="org.example.bank.entity.Account">
+        SELECT * FROM jmb_account WHERE account_id = #{accountId}
+    </select>
+
+    <select id="getAccounts" resultType="org.example.bank.entity.Account">
+        select * from jmb_account
+    </select>
+</mapper>
