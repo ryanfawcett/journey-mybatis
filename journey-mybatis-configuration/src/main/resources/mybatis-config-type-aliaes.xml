@@ -3,6 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <typeAliases>
+        <!-- 别名为实体类的名字, 并且不区分大小写 -->
+        <package name="org.example.mybatis.entity"/>
+        <!-- <typeAlias type="org.example.mybatis.entity.User" alias="User"/> -->
+    </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
