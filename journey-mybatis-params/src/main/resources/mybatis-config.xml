@@ -19,7 +19,6 @@
         </environment>
     </environments>
     <mappers>
-        <!-- 注意: 以包为单位注册XML文件, 文件名与路径必须与mapper接口一致 -->
         <package name="org.example.mybatis.mapper"/>
     </mappers>
 </configuration>

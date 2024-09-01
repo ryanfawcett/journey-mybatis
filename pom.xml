@@ -13,6 +13,7 @@
         <module>journey-mybatis-complete</module>
         <module>journey-mybatis-configuration</module>
         <module>journey-mybatis-bank</module>
+        <module>journey-mybatis-params</module>
     </modules>
 
     <properties>
